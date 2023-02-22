@@ -54,7 +54,7 @@ public class UserService {
 
     // Method for checking if a user exists
     private CustomResponse<User> userExists(User user) {
-        Optional<User> userExists = this.repository.findByEmail(user.getEmail().trim());
+        Optional<User> userExists = this.repository.findById(user.getId());
         if (userExists.isPresent()) {
             return new CustomResponse<>(null, true, 400, "The user already exists");
         }

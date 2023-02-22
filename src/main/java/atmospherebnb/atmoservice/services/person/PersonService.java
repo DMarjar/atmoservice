@@ -54,7 +54,7 @@ public class PersonService {
 
     // Method for checking if a person exists
     private CustomResponse<Person> personExists(Person person) {
-        Optional<Person> personExists = this.repository.findByFullName(person.getFullName().trim());
+        Optional<Person> personExists = this.repository.findById(person.getId());
         if (personExists.isPresent()) {
             return new CustomResponse<>(null, true, 400, "The person already exists");
         }

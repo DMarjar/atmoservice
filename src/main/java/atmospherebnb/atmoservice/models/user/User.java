@@ -19,9 +19,16 @@ public class User {
     private String email;
     // User person
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    @JoinColumn(name = "person_id", referencedColumnName = "id", nullable = false)
     private Person person;
     // User uid
     @Column(nullable = false)
     private String uid;
+
+    public User(long id, String email, Person person, String uid) {
+        this.id = id;
+        this.email = email;
+        this.person = person;
+        this.uid = uid;
+    }
 }

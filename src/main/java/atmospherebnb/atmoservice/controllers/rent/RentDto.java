@@ -1,6 +1,7 @@
-package atmospherebnb.atmoservice.controllers.user;
+package atmospherebnb.atmoservice.controllers.rent;
 
-import atmospherebnb.atmoservice.models.person.Person;
+import atmospherebnb.atmoservice.models.department.Department;
+import atmospherebnb.atmoservice.models.rent.Rent;
 import atmospherebnb.atmoservice.models.user.User;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,26 +11,25 @@ import org.hibernate.validator.constraints.Length;
 
 @Data
 @NoArgsConstructor
-public class UserDto {
+public class RentDto {
     private long id;
     @NotNull
     @NotBlank
     @Length(min = 1, max = 150)
-    private String email;
+    private String date;
     @NotNull
     @NotBlank
-    private Person person;
+    private Department department;
     @NotNull
     @NotBlank
-    @Length(min = 1, max = 150)
-    private String uid;
+    private User user;
 
-    public User castToUser() {
-        return new User(
+    public Rent castToRent() {
+        return new Rent(
                 this.id,
-                this.email,
-                this.person,
-                this.uid
+                this.date,
+                this.department,
+                this.user
         );
     }
 }

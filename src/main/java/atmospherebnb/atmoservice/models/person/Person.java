@@ -26,9 +26,10 @@ public class Person {
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL, optional = false)
     private User user;
 
-    public Person(Long id, String fullName, String birthdate) {
+    public Person(Long id, String fullName, String birthdate, User user) {
         this.id = id;
         this.fullName = fullName;
         this.birthdate = birthdate;
+        this.user = user;
     }
 }

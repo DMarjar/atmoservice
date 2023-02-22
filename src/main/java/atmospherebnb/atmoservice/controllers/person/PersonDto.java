@@ -24,7 +24,8 @@ public class PersonDto {
         return new Person(
                 this.id,
                 this.fullName,
-                this.birthdate
+                this.birthdate,
+                null
         );
     }
 }
